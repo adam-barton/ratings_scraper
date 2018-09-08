@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'irb'
+
+def reload!
+ require_all './lib'
+end
+
+
+require_relative '../config/environment'
+
+puts "Welcome to the sandbox."
+IRB.start
