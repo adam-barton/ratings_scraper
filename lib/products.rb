@@ -5,22 +5,25 @@ class Product
   #Monitors
   #Headphones
 
-  attr_accessor :type, :reviews
+  attr_accessor :product, :reviews
+  
+  @@product_reviews = []
 
-  def initialize(type)
-    @type = type
+  def initialize(product)
+    @product = product
   end
 
   def choice
-    puts "#{@type}, excellent choice."
+    puts "#{@Product}, excellent choice."
     puts " "
     puts "Here are the latest reviews:"
-    binding.pry
-
-    Reviews.latest_activity.each do |item|
-      item.product == @type
-      item.title 
-     end
-    # Reviews.latest_activity
+    self.reviews 
   end
+
+  def reviews(review)
+    review.product = self 
+    @@product_reviews << self
+     end
+  end
+  
 end
