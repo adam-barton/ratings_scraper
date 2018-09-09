@@ -3,6 +3,12 @@ class Reviews
   attr_accessor :product, :title, :date
 
   @@all = []
+  
+  def initialize(title, product, date)
+    @title = title 
+    @product = product
+    @date = date
+  end
 
   def self.latest_activity
     # puts <<-DOC

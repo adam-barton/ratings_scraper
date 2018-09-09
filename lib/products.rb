@@ -6,24 +6,23 @@ class Product
   #Headphones
 
   attr_accessor :product, :reviews
-  
-  @@product_reviews = []
+
 
   def initialize(product)
     @product = product
+    @product_reviews = []
   end
 
   def choice
     puts "#{@Product}, excellent choice."
     puts " "
     puts "Here are the latest reviews:"
-    self.reviews 
   end
 
-  def reviews(review)
+  def reviews
     review.product = self 
-    @@product_reviews << self
-     end
+    @product_reviews << self
+    binding.pry
   end
   
 end
