@@ -15,10 +15,12 @@ class Product
     puts "#{@type}, excellent choice."
     puts " "
     puts "Here are the latest reviews:"
+    binding.pry
 
-    # Reviews.all.each do |item|
-    #   item.product == @type.to_s
-    # end
-    Reviews.latest_activity
+    Reviews.latest_activity.each do |item|
+      item.product == @type
+      item.title 
+     end
+    # Reviews.latest_activity
   end
 end

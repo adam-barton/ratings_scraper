@@ -5,11 +5,11 @@ class Reviews
   @@all = []
 
   def self.latest_activity
-    puts <<-DOC
-    1. Aug 24 New: Hisense H9E Plus Review
-    2. Aug 23 New: Video: Vizio P Series Quantum TV Review
-    3. Aug 20 New: Video: LG B8/C8 OLED Picture Settings
-    DOC
+    # puts <<-DOC
+    # 1. Aug 24 New: Hisense H9E Plus Review
+    # 2. Aug 23 New: Video: Vizio P Series Quantum TV Review
+    # 3. Aug 20 New: Video: LG B8/C8 OLED Picture Settings
+    # DOC
 
     review_1 = self.new
     review_1.title = "New: Hisense H9E Plus Review"
