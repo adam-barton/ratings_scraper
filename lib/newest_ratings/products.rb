@@ -1,4 +1,4 @@
-class Product
+class NewestRatings::Product
 
 #Product types are:
   #Televisions

@@ -1,4 +1,4 @@
-class CLI
+class NewestRatings::CLI
 
     def call
         puts " "
