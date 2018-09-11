@@ -1,4 +1,4 @@
-class NewestRatings::CLI
+class  CLI
 
     def call
         puts " "
@@ -27,13 +27,13 @@ class NewestRatings::CLI
 
           case input
           when "1"
-            a = NewestRatings::Product.new("Televisions")
+            a = Product.new("Televisions")
             a.choice
           when "2"
-            a = NewestRatings::Product.new("Monitors")
+            a = Product.new("Monitors")
             a.choice
           when "3"
-            a = NewestRatings::Product.new("Headphones")
+            a = Product.new("Headphones")
             a.choice
           when "menu"
             main_menu

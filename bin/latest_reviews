@@ -3,4 +3,4 @@
 require_relative '../config/environment'
 
 
-NewestRatings::CLI.new.call
+CLI.new.call

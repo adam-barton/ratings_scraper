@@ -1,4 +1,4 @@
-class NewestRatings::Reviews
+class Reviews
 
   attr_accessor :product, :title, :date
 

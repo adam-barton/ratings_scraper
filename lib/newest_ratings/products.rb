@@ -1,4 +1,4 @@
-class NewestRatings::Product
+class Product
 
 #Product types are:
   #Televisions
@@ -14,7 +14,7 @@ class NewestRatings::Product
   end
 
   def choice
-    puts "#{@Product}, excellent choice."
+    puts "#{@product}, excellent choice."
     puts " "
     puts "Here are the latest reviews:"
   end
