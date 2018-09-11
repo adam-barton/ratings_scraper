@@ -1,12 +1,12 @@
-class NewestRatings::Scraper
+class Scraper
   
   def scrape_site
-    Nokogiri::HTML(open("https://www.rtings.com/"))
+    html = (open("https://www.rtings.com/"))
+    doc = Nokogiri::HTML(html)
   end
   
   def scrape_products 
-    self.scrape_site.css(".home-table .home-tile-title")
-    binding.pry
+    self.scrape_site.css(".home-table .home-tile-title").text
   end
   
 end
