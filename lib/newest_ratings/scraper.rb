@@ -1,12 +1,19 @@
+require 'pry'
+require 'nokogiri'
+require 'open-uri'
+
 class Scraper
   
-  def scrape_site
+  def self.scrape_site
     html = (open("https://www.rtings.com/"))
     doc = Nokogiri::HTML(html)
   end
   
-  def scrape_products 
+  def self.scrape_products 
     self.scrape_site.css(".home-table .home-tile-title").text
+    binding.pry
   end
   
 end
+
+Scraper.scrape_products
