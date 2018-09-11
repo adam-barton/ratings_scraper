@@ -27,13 +27,13 @@ class NewestRatings::CLI
 
           case input
           when "1"
-            a = Product.new("Televisions")
+            a = NewestRatings::Product.new("Televisions")
             a.choice
           when "2"
-            a = Product.new("Monitors")
+            a = NewestRatings::Product.new("Monitors")
             a.choice
           when "3"
-            a = Product.new("Headphones")
+            a = NewestRatings::Product.new("Headphones")
             a.choice
           when "menu"
             main_menu
