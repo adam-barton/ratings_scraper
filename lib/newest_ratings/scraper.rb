@@ -22,7 +22,7 @@ class Scraper
    def self.titles
      titles = []
      
-    titles << Scraper.scrape_site.css('.home-table .silo-activity li a').text 
+    titles << Scraper.scrape_site.css('.home-table .silo-activity li a').text.split(":")
      binding.pry
     titles.each.with_index do |name, index|
     puts "#{index} - #{name}"
