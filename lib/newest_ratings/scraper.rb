@@ -17,9 +17,19 @@ class Scraper
     # title & date = scrape_site.css('.home-table .silo-activity li').first.children.text
     # text = scrape_site.css('.home-table .silo-activity li').children.children.children
     # title = Scraper.scrape_site.css('.home-table .silo-activity li a').first.text
-    binding.pry
+  end
+  
+   def self.titles
+     titles = []
+     
+    titles << Scraper.scrape_site.css('.home-table .silo-activity li a').text 
+     binding.pry
+    titles.each.with_index do |name, index|
+    puts "#{index} - #{name}"
+    end
+   
   end
   
 end
 
-Scraper.scrape_products
+Scraper.titles
