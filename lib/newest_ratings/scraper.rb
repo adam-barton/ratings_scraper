@@ -16,6 +16,7 @@ class Scraper
     # title & URL = scrape_site.css(".home-table .silo-activity li a")
     # title & date = scrape_site.css('.home-table .silo-activity li').first.children.text
     # text = scrape_site.css('.home-table .silo-activity li').children.children.children
+    # title = Scraper.scrape_site.css('.home-table .silo-activity li a').first.text
     binding.pry
   end
   
