@@ -27,6 +27,10 @@ class Product
     @product_reviews
   end
   
+  def add_review(review)
+    review.product = self unless review.product
+  end
+  
   
 
   def choice

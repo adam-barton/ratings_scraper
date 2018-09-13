@@ -1,5 +1,5 @@
 require 'pry'
-class Reviews
+class Review
 
   attr_accessor :product, :title, :date, :url
 
