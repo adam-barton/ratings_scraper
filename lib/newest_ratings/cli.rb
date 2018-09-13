@@ -1,6 +1,8 @@
 class  CLI
 
     def call
+      Scraper.scrape_products
+      Scraper.scrape_reviews
         puts " "
         puts "Welcome to RTINGS."
         puts " "
@@ -11,9 +13,9 @@ class  CLI
     def main_menu
 
       puts <<-DOC
-            Enter 1 for Televisions
-            Enter 2 for Monitors
-            Enter 3 for Headphones
+            Enter "t" for Televisions
+            Enter "m" for Monitors
+            Enter "h" for Headphones
             Or type exit
       DOC
       selection
@@ -26,9 +28,10 @@ class  CLI
         input = gets.strip.downcase
 
           case input
-          when "1"
-            a = Product.new("Televisions")
-            a.choice
+          when "t"
+            Reviews.product == "Televisions"
+            # a = Product.new("Televisions")
+            # a.choice
           when "2"
             a = Product.new("Monitors")
             a.choice

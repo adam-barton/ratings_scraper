@@ -11,9 +11,14 @@ class Reviews
     @url = url
   end
   
-  def self.save
+  def save
     @@all << self
   end
+  
+   def self.all
+    @@all
+  end
+  
 
   def self.latest_activity
     # puts <<-DOC
@@ -39,10 +44,6 @@ class Reviews
     review_3.date = "Aug 20"
     review_3.product = "Headphones"
     @@all << review_3
-  end
-
-  def self.all
-    @@all
   end
 
 

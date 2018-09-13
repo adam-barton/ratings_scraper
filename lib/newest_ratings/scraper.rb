@@ -1,7 +1,3 @@
-require 'pry'
-require 'nokogiri'
-require 'open-uri'
-
 class Scraper
   
   def self.scrape_site
@@ -29,7 +25,7 @@ class Scraper
         @title = article.css('a').text
         @date = article.css('.pub-date').text
         @url = article.css("a").attribute('href').value
-      review = Review.new
+      review = Reviews.new
       review.product = self.scrape_products[index]
       review.title = @title
       review.date = @date
@@ -46,5 +42,3 @@ class Scraper
     end  
   end
 end
-
-Scraper.scrape_reviews
