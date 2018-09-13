@@ -5,13 +5,29 @@ class Product
   #Monitors
   #Headphones
 
-  attr_accessor :product, :reviews
+  attr_accessor :name, :reviews
 
+  @@all = []
 
-  def initialize(product)
-    @product = product
+  def initialize(name)
+    @name = name
     @product_reviews = []
   end
+  
+  def self.all 
+    @@all
+  end
+  
+  def save
+    @@all << self 
+    self
+  end
+  
+  def reviews 
+    @product_reviews
+  end
+  
+  
 
   def choice
     puts "#{@product}, excellent choice."
