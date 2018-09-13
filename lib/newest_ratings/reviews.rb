@@ -1,3 +1,4 @@
+require 'pry'
 class Reviews
 
   attr_accessor :product, :title, :date, :url
@@ -17,6 +18,13 @@ class Reviews
   
    def self.all
     @@all
+  end
+  
+  def self.list_reviews_by_product(product)
+    @@all.find do |review|
+      review.product == product
+      self
+    end
   end
   
 
