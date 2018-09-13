@@ -1,13 +1,18 @@
 class Reviews
 
-  attr_accessor :product, :title, :date
+  attr_accessor :product, :title, :date, :url
 
   @@all = []
   
-  def initialize(title, product, date)
-    @title = title 
+  def initialize
     @product = product
+    @title = title 
     @date = date
+    @url = url
+  end
+  
+  def self.save
+    @@all << self
   end
 
   def self.latest_activity

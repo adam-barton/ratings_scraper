@@ -26,27 +26,25 @@ class Scraper
      
     list.each.with_index do |item, index|
         item.css('li').each do |article|
-        @name = article.css('a').text
+        @title = article.css('a').text
         @date = article.css('.pub-date').text
         @url = article.css("a").attribute('href').value
-      # review = Review.new
-      # review.name = @name
-      # review.date = @date
-      # review.url = @url
-      # review.product = @product
-      # review.save
-      # puts "#{number + 1}:" 
-      puts self.scrape_products[index]
-      puts "#{@product}"
-      puts "#{@date}"
-      puts "#{@name}"
-      puts " "
-      puts "https://www.rtings.com#{@url}"
-      puts " "
+      review = Review.new
+      review.product = self.scrape_products[index]
+      review.title = @title
+      review.date = @date
+      review.url = "https://www.rtings.com#{@url}"
+      review.save
+      # puts self.scrape_products[index]
+      # puts "#{@product}"
+      # puts "#{@date}"
+      # puts "#{@name}"
+      # puts " "
+      # puts "https://www.rtings.com#{@url}"
+      # puts " "
       end
     end  
   end
-  binding.pry
 end
 
 Scraper.scrape_reviews
