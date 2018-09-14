@@ -7,19 +7,12 @@ class Scraper
   
   def self.scrape_products 
     self.scrape_site.css(".home-table .home-tile-title").text.split
-    
-    # date = scrape_site.css(".home-table .silo-activity li .pub-date").text
-    # date = scrape_site.css('.home-table .silo-activity li span').first.text
-    # title & URL = scrape_site.css(".home-table .silo-activity li a")
-    # title & date = scrape_site.css('.home-table .silo-activity li').first.children.text
-    # text = scrape_site.css('.home-table .silo-activity li').children.children.children
-    # title = Scraper.scrape_site.css('.home-table .silo-activity li a').first.text
+  
   end
   
-  def new_products
-   self.scrape_products.each do |item|
+  def self.new_products
+    self.scrape_products.each do |item|
      product = Product.new(item) unless Product.all.include?(item)
-     product.save
    end
   end
 

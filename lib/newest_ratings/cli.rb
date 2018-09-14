@@ -2,6 +2,7 @@ class  CLI
 
     def call
       Scraper.scrape_products
+      Scraper.new_products
       Scraper.scrape_reviews
         puts " "
         puts "Welcome to RTINGS."
