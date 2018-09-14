@@ -30,7 +30,7 @@ class Review
   def self.list_reviews_by_product(product)
     @@all.find.with_index do |review, index|
       review.product == product
-      puts "#{index}. #{review.date} - #{review.title}"
+      puts "#{index+1}. #{review.date} - #{review.title}"
     end
   end
   

@@ -43,12 +43,6 @@ class Scraper
           p.name == self.scrape_products[index]
         end
       review = Review.new(@title, @date, "https://www.rtings.com#{@url}", @product)
-    
-        # review.product = self.scrape_products[index]
-        # review.title = @title
-        # review.date = @date
-        # review.url = "https://www.rtings.com#{@url}"
-
       review.save
 
       end

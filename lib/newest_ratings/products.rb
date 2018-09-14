@@ -30,6 +30,12 @@ class Product
     @reviews
   end
   
+  def self.list_products
+    @@all.each.with_index do |p, index|
+      puts "#{index +1} - #{p.name}"
+    end
+  end
+  
   def add_review(review)
     review.product = self 
     @reviews << self
@@ -40,14 +46,6 @@ class Product
       review.product == product
     end
   end
-  
-  # def self.find_by_name(name)
-  #   @@all.find do |product|
-  #   product.name == name
-  # end
-  # end
-  
-  
 
   def choice
     puts "#{@product}, excellent choice."
