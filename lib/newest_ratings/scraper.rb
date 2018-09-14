@@ -19,6 +19,7 @@ class Scraper
   def new_products
    self.scrape_products.each do |item|
      product = Product.new(item) unless Product.all.include?(item)
+     product.save
    end
   end
 
@@ -32,7 +33,10 @@ class Scraper
         @title = article.css('a').text
         @date = article.css('.pub-date').text
         @url = article.css("a").attribute('href').value
-      review = Review.new(@title, @date, "https://www.rtings.com#{@url}", self.scrape_products[index])
+        @product = Product.all.find do |p|
+          p.name == self.scrape_products[index]
+        end
+      review = Review.new(@title, @date, "https://www.rtings.com#{@url}", @product)
       # review.product = self.scrape_products[index]
       # review.title = @title
       # review.date = @date
