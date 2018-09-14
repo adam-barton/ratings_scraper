@@ -1,3 +1,4 @@
+require 'pry'
 class Product
 
 #Product types are:
@@ -12,6 +13,7 @@ class Product
   def initialize(name)
     @name = name
     @product_reviews = []
+    @@all << self
   end
   
   def self.all 
@@ -28,8 +30,14 @@ class Product
   end
   
   def add_review(review)
-    review.product = self unless review.product
+    review.product = self 
     @product_reviews << self
+  end
+  
+  def self.find_by_name(name)
+    @@all.find do |product|
+    product.name == name
+  end
   end
   
   
@@ -39,6 +47,6 @@ class Product
     puts " "
     puts "Here are the latest reviews:"
   end
-
-  
 end
+
+Product.find_by_name("Monitors")
