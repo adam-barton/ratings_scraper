@@ -1,3 +1,10 @@
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
+require_relative './reviews.rb'
+require_relative './products.rb'
+
 class Scraper
   
   def self.scrape_site
@@ -30,6 +37,7 @@ class Scraper
           p.name == self.scrape_products[index]
         end
       review = Review.new(@title, @date, "https://www.rtings.com#{@url}", @product)
+      binding.pry
       # review.product = self.scrape_products[index]
       # review.title = @title
       # review.date = @date
@@ -46,3 +54,7 @@ class Scraper
     end  
   end
 end
+
+     Scraper.scrape_products
+      Scraper.new_products
+      Scraper.scrape_reviews

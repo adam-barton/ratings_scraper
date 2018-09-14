@@ -6,13 +6,14 @@ class Product
   #Monitors
   #Headphones
 
-  attr_accessor :name, :reviews
+  attr_accessor :name
+  attr_reader :reviews
 
   @@all = []
 
   def initialize(name)
     @name = name
-    @product_reviews = []
+    @reviews = []
     @@all << self
   end
   
@@ -26,7 +27,7 @@ class Product
   end
   
   def reviews 
-    @product_reviews
+    @reviews
   end
   
   def add_review(review)
