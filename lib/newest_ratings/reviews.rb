@@ -1,16 +1,23 @@
 require 'pry'
 class Review
 
-  attr_accessor :product, :title, :date, :url
+  attr_accessor :title, :date, :url
+  attr_reader :product
 
   @@all = []
   
   def initialize
-    @product = product
+   self.product = product
     @title = title 
     @date = date
     @url = url
   end
+  
+  def product=(product)
+    @product = product
+    @product.add_review(self)
+  end
+  
   
   def save
     @@all << self

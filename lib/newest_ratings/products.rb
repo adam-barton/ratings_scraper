@@ -29,6 +29,7 @@ class Product
   
   def add_review(review)
     review.product = self unless review.product
+    @product_reviews << self
   end
   
   
@@ -39,10 +40,5 @@ class Product
     puts "Here are the latest reviews:"
   end
 
-  def reviews
-    review.product = self 
-    @product_reviews << self
-    binding.pry
-  end
   
 end
