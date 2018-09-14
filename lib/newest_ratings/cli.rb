@@ -15,13 +15,6 @@ class  CLI
       Product.list_products
       puts " "
       puts "Or type exit"
-      
-      # <<-DOC
-      #       Enter "t" for Televisions
-      #       Enter "m" for Monitors
-      #       Enter "h" for Headphones
-      #       Or type exit
-      # DOC
       selection
     end
 
@@ -36,7 +29,7 @@ class  CLI
             puts "Here are the latest reviews:"
               Scraper.scrape_reviews
            Review.list_reviews_by_product(Product.all[0].name)
-            
+            second_menu
           when "2"
             a = Product.new("Monitors")
             a.choice
@@ -48,6 +41,19 @@ class  CLI
           # else
           #   puts "Please make a valid selection"
           end
+      end
+    end
+    
+    def second_menu
+      input = nil
+      puts " "
+      puts "select the review you'd like to read, or back to go back to the main menu."
+      input = gets.strip.downcase
+      
+        case input
+        when "back"
+          Review.clear
+          main_menu
       end
     end
 

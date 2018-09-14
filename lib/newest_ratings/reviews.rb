@@ -18,6 +18,9 @@ class Review
     Product.add_review(self)
   end
   
+  def self.clear
+    @@all.clear
+  end
   
   def save
     @@all << self
