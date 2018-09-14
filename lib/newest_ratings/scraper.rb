@@ -10,7 +10,7 @@ class Scraper
   def self.start 
      self.scrape_products
       self.new_products
-      self.scrape_reviews
+      # self.scrape_reviews
   end
   
   def self.scrape_site

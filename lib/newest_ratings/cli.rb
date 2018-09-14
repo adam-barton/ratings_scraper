@@ -10,13 +10,18 @@ class  CLI
     end
 
     def main_menu
-
-      puts <<-DOC
-            Enter "t" for Televisions
-            Enter "m" for Monitors
-            Enter "h" for Headphones
-            Or type exit
-      DOC
+      puts "Please make a selection:"
+      puts " "
+      Product.list_products
+      puts " "
+      puts "Or type exit"
+      
+      # <<-DOC
+      #       Enter "t" for Televisions
+      #       Enter "m" for Monitors
+      #       Enter "h" for Headphones
+      #       Or type exit
+      # DOC
       selection
     end
 
@@ -26,7 +31,7 @@ class  CLI
         input = gets.strip.downcase
 
           case input
-          when "t"
+          when "1"
            Review.list_reviews_by_product("Televisions")
             
           when "2"

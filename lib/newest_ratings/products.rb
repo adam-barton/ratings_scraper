@@ -1,11 +1,6 @@
 require 'pry'
 class Product
 
-#Product types are:
-  #Televisions
-  #Monitors
-  #Headphones
-
   attr_accessor :name
   attr_reader :reviews
 
