@@ -7,7 +7,6 @@ class Review
   @@all = []
   
   def initialize(title, date, url, product=nil)
-   @product = product if product
     @title = title 
     @date = date
     @url = url
@@ -15,8 +14,7 @@ class Review
   
   def product=(product)
     @product = product
-    # @product.add_review(self)
-    binding.pry
+    Product.add_review(self)
   end
   
   

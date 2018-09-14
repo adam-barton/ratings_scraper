@@ -32,14 +32,20 @@ class Product
   
   def add_review(review)
     review.product = self 
-    @product_reviews << self
+    @reviews << self
   end
   
-  def self.find_by_name(name)
-    @@all.find do |product|
-    product.name == name
+  def self.list_reviews(product)
+    Review.all.collect do |review|
+      review.product == product
+    end
   end
-  end
+  
+  # def self.find_by_name(name)
+  #   @@all.find do |product|
+  #   product.name == name
+  # end
+  # end
   
   
 
@@ -50,4 +56,4 @@ class Product
   end
 end
 
-Product.find_by_name("Monitors")
+Product.list_reviews("Monitors")

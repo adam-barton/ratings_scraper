@@ -7,6 +7,12 @@ require_relative './products.rb'
 
 class Scraper
   
+  def self.start 
+     self.scrape_products
+      self.new_products
+      self.scrape_reviews
+  end
+  
   def self.scrape_site
     html = (open("https://www.rtings.com/"))
     doc = Nokogiri::HTML(html)
@@ -37,24 +43,18 @@ class Scraper
           p.name == self.scrape_products[index]
         end
       review = Review.new(@title, @date, "https://www.rtings.com#{@url}", @product)
-      binding.pry
-      # review.product = self.scrape_products[index]
-      # review.title = @title
-      # review.date = @date
-      # review.url = "https://www.rtings.com#{@url}"
+    
+        # review.product = self.scrape_products[index]
+        # review.title = @title
+        # review.date = @date
+        # review.url = "https://www.rtings.com#{@url}"
+
       review.save
-      # puts self.scrape_products[index]
-      # puts "#{@product}"
-      # puts "#{@date}"
-      # puts "#{@name}"
-      # puts " "
-      # puts "https://www.rtings.com#{@url}"
-      # puts " "
+      binding.pry
       end
     end  
   end
 end
 
-     Scraper.scrape_products
-      Scraper.new_products
-      Scraper.scrape_reviews
+Scraper.start
+  

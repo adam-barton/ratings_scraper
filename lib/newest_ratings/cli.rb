@@ -1,9 +1,7 @@
 class  CLI
 
     def call
-      Scraper.scrape_products
-      Scraper.new_products
-      Scraper.scrape_reviews
+      Scraper.start
         puts " "
         puts "Welcome to RTINGS."
         puts " "
@@ -29,8 +27,7 @@ class  CLI
 
           case input
           when "t"
-           a = Product.find_by_name("Televisions")
-           a.reviews
+           Product.list_reviews("Televisions")
   
             # a = Product.new("Televisions")
             # a.choice
