@@ -24,13 +24,12 @@ class  CLI
     def selection
       input = nil
       while input != "exit".strip.downcase
-
         input = gets.strip.downcase
 
           case input
           when "t"
-            Reviews.list_reviews_by_product("Televisions")
-              
+            Review.list_reviews_by_product("Televisions")
+  
             # a = Product.new("Televisions")
             # a.choice
           when "2"

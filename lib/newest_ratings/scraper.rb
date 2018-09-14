@@ -25,11 +25,11 @@ class Scraper
         @title = article.css('a').text
         @date = article.css('.pub-date').text
         @url = article.css("a").attribute('href').value
-      review = Review.new
-      review.product = self.scrape_products[index]
-      review.title = @title
-      review.date = @date
-      review.url = "https://www.rtings.com#{@url}"
+      review = Review.new(@title, @date, "https://www.rtings.com#{@url}", self.scrape_products[index])
+      # review.product = self.scrape_products[index]
+      # review.title = @title
+      # review.date = @date
+      # review.url = "https://www.rtings.com#{@url}"
       review.save
       # puts self.scrape_products[index]
       # puts "#{@product}"
