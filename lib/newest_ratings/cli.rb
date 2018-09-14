@@ -32,7 +32,10 @@ class  CLI
 
           case input
           when "1"
-           Review.list_reviews_by_product("Televisions")
+            puts "#{Product.all[0].name}, good choice."
+            puts "Here are the latest reviews:"
+              Scraper.scrape_reviews
+           Review.list_reviews_by_product(Product.all[0].name)
             
           when "2"
             a = Product.new("Monitors")
