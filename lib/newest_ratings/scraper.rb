@@ -1,9 +1,9 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
+# require 'nokogiri'
+# require 'open-uri'
+# require 'pry'
 
-require_relative './reviews.rb'
-require_relative './products.rb'
+# require_relative './reviews.rb'
+# require_relative './products.rb'
 
 class Scraper
   
@@ -50,11 +50,11 @@ class Scraper
         # review.url = "https://www.rtings.com#{@url}"
 
       review.save
-      binding.pry
+
       end
     end  
   end
 end
 
-Scraper.start
+# Scraper.start
   

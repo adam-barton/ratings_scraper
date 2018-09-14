@@ -10,6 +10,7 @@ class Review
     @title = title 
     @date = date
     @url = url
+    @product = product if product
   end
   
   def product=(product)
@@ -27,9 +28,9 @@ class Review
   end
   
   def self.list_reviews_by_product(product)
-    @@all.find do |review|
+    @@all.find.with_index do |review, index|
       review.product == product
-      self
+      puts "#{index}. #{review.date} - #{review.title}"
     end
   end
   

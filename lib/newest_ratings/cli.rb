@@ -27,7 +27,7 @@ class  CLI
 
           case input
           when "t"
-           Product.list_reviews("Televisions")
+           Review.list_reviews_by_product("Televisions")
   
             # a = Product.new("Televisions")
             # a.choice

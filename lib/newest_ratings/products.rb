@@ -56,4 +56,4 @@ class Product
   end
 end
 
-Product.list_reviews("Monitors")
+# Product.list_reviews("Monitors")
