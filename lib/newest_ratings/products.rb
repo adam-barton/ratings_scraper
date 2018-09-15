@@ -31,9 +31,11 @@ class Product
     end
   end
   
-  def add_review(review)
-    review.product = self 
-    @reviews << self
+  def self.add_review(review)
+    Product.each do |p|
+      review.product.name == p.name
+      p.reviews << review
+    end
   end
   
   def self.list_reviews(product)
