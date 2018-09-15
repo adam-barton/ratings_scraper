@@ -34,6 +34,7 @@ class Review
     @@all.find.with_index do |review, index|
       review.product == product
       puts "#{index+1}. #{review.date} - #{review.title}"
+      # Product.add_review(self)
     end
   end
   

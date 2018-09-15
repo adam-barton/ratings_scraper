@@ -48,12 +48,16 @@ class  CLI
       input = nil
       puts " "
       puts "select the review you'd like to read, or back to go back to the main menu."
+      binding.pry
       input = gets.strip.downcase
       
         case input
         when "back"
           Review.clear
           main_menu
+        # else 
+        #   Review.all.each.with_index do |r, index|
+        #     r.product == 
       end
     end
 
