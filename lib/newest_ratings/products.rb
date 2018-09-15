@@ -37,8 +37,11 @@ class Product
   end
   
   def self.list_reviews(product)
-    Review.all.collect do |review|
-      review.product == product
+    Product.all.each do |p|
+      p.name == product
+      p.reviews.each.with_index do |r, index|
+        puts "#{index}: #{r.date} - #{r.title}"
+      end
     end
   end
 

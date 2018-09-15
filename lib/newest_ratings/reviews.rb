@@ -1,23 +1,24 @@
 require 'pry'
 class Review
 
-  attr_accessor :title, :date, :url
-  attr_reader :product
+  attr_accessor :title, :date, :url, :product
+  attr_reader 
 
   @@all = []
   
-  def initialize(title, date, url, product=nil)
+  def initialize(title, date, url, product)
     @title = title 
     @date = date
     @url = url
-    self.product = product if product
+    self.product = product
+    @product.add_review(self)
   end
   
-  def product=(product)
-    @product = product
-    @product.add_review(self)
-    binding.pry
-  end
+  # def product=(product)
+  #   @product = product
+    
+  #   binding.pry
+  # end
   
   def self.clear
     @@all.clear
