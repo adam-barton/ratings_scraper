@@ -37,11 +37,9 @@ class Product
   end
   
   def self.list_reviews(product)
-    Product.all.each do |p|
-      p.name == product
-      p.reviews.each.with_index do |r, index|
-        puts "#{index}: #{r.date} - #{r.title}"
-      end
+      product.reviews.each.with_index do |r, index|
+        puts "#{index +1}: #{r.date} - #{r.title}"
+        break if index == 4
     end
   end
 

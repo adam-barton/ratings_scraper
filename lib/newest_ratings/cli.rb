@@ -14,7 +14,7 @@ class  CLI
       puts " "
       Product.list_products
       puts " "
-      puts "Or type exit"
+      puts "Or type exit to leave"
       selection
     end
 
@@ -53,7 +53,7 @@ class  CLI
       input = gets.strip.downcase
       
         case input
-        when "back"
+        when "exit"
           Review.clear
           main_menu
         # else 
