@@ -28,7 +28,8 @@ class  CLI
             puts "#{Product.all[0].name}, good choice."
             puts "Here are the latest reviews:"
               Scraper.scrape_reviews
-           Review.list_reviews_by_product(Product.all[0].name)
+              Product.all[0].reviews
+          # Review.list_reviews_by_product(Product.all[0].name)
             second_menu
           when "2"
             a = Product.new("Monitors")
@@ -48,7 +49,6 @@ class  CLI
       input = nil
       puts " "
       puts "select the review you'd like to read, or back to go back to the main menu."
-      binding.pry
       input = gets.strip.downcase
       
         case input

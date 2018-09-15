@@ -10,12 +10,13 @@ class Review
     @title = title 
     @date = date
     @url = url
-    @product = product if product
+    self.product = product if product
   end
   
   def product=(product)
     @product = product
-    Product.add_review(self)
+    @product.add_review(self)
+    binding.pry
   end
   
   def self.clear
@@ -35,6 +36,7 @@ class Review
       review.product == product
       puts "#{index+1}. #{review.date} - #{review.title}"
       # Product.add_review(self)
+      binding.pry
     end
   end
   
