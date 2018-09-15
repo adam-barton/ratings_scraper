@@ -5,6 +5,7 @@ class Product
   attr_reader :reviews
 
   @@all = []
+  @@current_reviews = []
 
   def initialize(name)
     @name = name
@@ -41,6 +42,10 @@ class Product
         puts "#{index +1}: #{r.date} - #{r.title}"
         break if index == 4
     end
+  end
+  
+  def self.current_reviews
+    @@current_reviews
   end
 
   def choice

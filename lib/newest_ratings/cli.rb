@@ -25,12 +25,12 @@ class  CLI
 
           case input
           when "1"
-            puts "#{Product.all[0].name}, good choice."
+            @current_selection = Product.all[0]
+            puts "#{@current_selection.name}, good choice."
             puts "Here are the latest reviews:"
               Scraper.scrape_reviews
-              # Product.all[0].reviews
-              Product.list_reviews(Product.all[0])
-          # Review.list_reviews_by_product(Product.all[0].name)
+             Product.list_reviews(@current_selection)
+            # @current_reviews
             second_menu
           when "2"
             a = Product.new("Monitors")
@@ -50,13 +50,20 @@ class  CLI
       input = nil
       puts " "
       puts "select the review you'd like to read, or exit to go back to the main menu."
+
       input = gets.strip.downcase
       
         case input
         when "exit"
           Review.clear
+          Product.current_reviews.clear
           main_menu
-        # else 
+         else 
+           @current_selection.reviews.each.with_index do |review, index|
+             input == index +1 
+             review
+         end
+             
         #   Review.all.each.with_index do |r, index|
         #     r.product == 
       end
