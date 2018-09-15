@@ -33,7 +33,7 @@ class Product
   
   def add_review(review)
     review.product = self 
-    @reviews.save
+    @reviews << review 
   end
   
   def self.list_reviews(product)
