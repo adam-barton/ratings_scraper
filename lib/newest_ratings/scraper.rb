@@ -1,9 +1,9 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
+# require 'nokogiri'
+# require 'open-uri'
+# require 'pry'
 
-require_relative './reviews.rb'
-require_relative './products.rb'
+# require_relative './reviews.rb'
+# require_relative './products.rb'
 
 class Scraper
   
@@ -52,12 +52,10 @@ class Scraper
   def self.scrape_synopsis(review)
      page = (open("#{review}"))
     review_page = Nokogiri::HTML(page) 
-     binding.pry
-    review_page.css('.product_page .row .col-2_3 p').text
-   
+    puts review_page.css('.product_page .row .col-2_3 p').text
   end
   
 end
 
-Scraper.scrape_synopsis("https://www.rtings.com/tv/reviews/samsung/the-frame-2018")
+# Scraper.scrape_synopsis("https://www.rtings.com/tv/reviews/samsung/the-frame-2018")
   

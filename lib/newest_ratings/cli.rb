@@ -4,7 +4,6 @@ class  CLI
       Scraper.start
         puts " "
         puts "Welcome to RTINGS."
-        sleep(1)
         puts " "
         main_menu
         goodbye
@@ -74,7 +73,8 @@ class  CLI
     
     def open_review(review)
       puts"#{@selected.reviews[review].url}"
-      puts " "
+      Scraper.scrape_synopsis("#{@selected.reviews[review].url}")
+      sleep 3
       puts " "
       puts "Would you like to see make another selection? y/n"
       

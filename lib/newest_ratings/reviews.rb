@@ -1,7 +1,7 @@
 require 'pry'
 class Review
 
-  attr_accessor :title, :date, :url, :product
+  attr_accessor :title, :date, :url, :product, :synopsis
   attr_reader 
 
   @@all = []
@@ -12,6 +12,7 @@ class Review
     @url = url
     self.product = product
     @product.add_review(self)
+    @synopsis = synopsis
   end
   
   def self.clear
@@ -35,5 +36,8 @@ class Review
     end
   end
   
+  def list_synopsis
+    
+  end
 
 end
