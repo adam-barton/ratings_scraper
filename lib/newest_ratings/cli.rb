@@ -77,12 +77,21 @@ class  CLI
     end
     
     def open_review(review)
-      `open (@selected.reviews[review].url)`
+      Launchy.open("@selected.reviews[review].url")
+      puts "Would you like to see make another selection? y/n"
+      
+      input = gets.strip.downcase
+      
+      case input
+      when "y"
       main_menu
+      when "n"
+      goodbye
     end
         
 
     def goodbye
       puts "Thanks for visiting. See you next time."
+      exit
     end
 end
