@@ -15,59 +15,72 @@ class  CLI
       Product.list_products
       puts " "
       puts "Or type exit to leave"
-      selection
-    end
+      @products = Product.all
+    #   selection
+    # end
 
-    def selection
+    # def selection
       input = nil
       while input != "exit".strip.downcase
+    #     input = gets.strip.downcase
+
+    #       case input
+    #       when "1"
+    #         @current_selection = Product.all[0]
+    #         puts "#{@current_selection.name}, good choice."
+    #         puts "Here are the latest reviews:"
+    #           Scraper.scrape_reviews
+    #         Product.list_reviews(@current_selection)
+    #         # @current_reviews
+    #         second_menu
+    #       when "2"
+    #         Launchy.open("https://www.rtings.com/")
+    #       when "3"
+    #         a = Product.new("Headphones")
+    #         a.choice
+    #       when "menu"
+    #         main_menu
+    #       # else
+    #       #   puts "Please make a valid selection"
+    #       end
+    #   end
+    # end
+    
+    input = gets.strip.downcase
+        @selected = Product.all[input.to_i - 1]
+        puts "#{@selected.name}, good choice."
+        puts "Here are the latest reviews:"
+        Scraper.scrape_reviews
+
+        list_reviews(@selected)
+
+        puts " "
+        puts "Enter the number of the review you'd like to read, or type exit to go back to the main menu."
+        puts " "
+
         input = gets.strip.downcase
 
-          case input
-          when "1"
-            @current_selection = Product.all[0]
-            puts "#{@current_selection.name}, good choice."
-            puts "Here are the latest reviews:"
-              Scraper.scrape_reviews
-             Product.list_reviews(@current_selection)
-            # @current_reviews
-            second_menu
-          when "2"
-            a = Product.new("Monitors")
-            a.choice
-          when "3"
-            a = Product.new("Headphones")
-            a.choice
-          when "menu"
-            main_menu
-          # else
-          #   puts "Please make a valid selection"
-          end
-      end
+        if input.to_i > 0 
+          open_review(input.to_i - 1)
+        
+        # elsif input == "exit"
+        # exit
+
+        else
+        puts "I don't understand. Try again"
+        end
+     end
+   end
+
+    def list_reviews(product)
+      Product.list_reviews(product)
     end
     
-    def second_menu
-      input = nil
-      puts " "
-      puts "select the review you'd like to read, or exit to go back to the main menu."
-
-      input = gets.strip.downcase
-      
-        case input
-        when "exit"
-          Review.clear
-          Product.current_reviews.clear
-          main_menu
-         else 
-           @current_selection.reviews.each.with_index do |review, index|
-             input == index +1 
-             review
-         end
-             
-        #   Review.all.each.with_index do |r, index|
-        #     r.product == 
-      end
+    def open_review(review)
+      `open (@selected.reviews[review].url)`
+      main_menu
     end
+        
 
     def goodbye
       puts "Thanks for visiting. See you next time."
