@@ -10,11 +10,15 @@ GEM
     mini_portile2 (2.3.0)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
+    paint (2.0.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     require_all (2.0.0)
+    unicode-display_width (1.4.0)
+    whirly (0.2.6)
+      unicode-display_width (~> 1.1)
 
 PLATFORMS
   ruby
@@ -22,8 +26,10 @@ PLATFORMS
 DEPENDENCIES
   launchy
   nokogiri
+  paint
   pry
   require_all
+  whirly
 
 BUNDLED WITH
    1.16.4

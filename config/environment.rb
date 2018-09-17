@@ -3,6 +3,8 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 require 'launchy'
+require 'whirly'
+require 'paint'
 
 Bundler.require
 

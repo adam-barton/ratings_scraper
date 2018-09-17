@@ -4,42 +4,46 @@ class  CLI
       Scraper.start
         puts " "
         puts "Welcome to RTINGS."
+        sleep(1)
         puts " "
         main_menu
         goodbye
     end
 
     def main_menu
+      # input = nil
+      # while input != "exit"
       puts "Please make a selection:"
       puts " "
       Product.list_products
       puts " "
       @products = Product.all
-    #   selection
-    # end
-
-    # def selection
-      # input = nil
-      # while input != "exit".strip.downcase
-    #     input = gets.strip.downcase
     
-    input = gets.strip.downcase
+    input = gets.strip
     
         @selected = Product.all[input.to_i - 1]
         
         if input.to_i > Product.all.count
-          puts "I don't understant, try again."
-          puts "----------------------------------"
+          puts "I don't understand, try again."
+          sleep 1
           main_menu
-      else        
-        puts "#{@selected.name}, good choice."
-        puts "Here are the latest reviews:"
+        
+        else        
+          puts "#{@selected.name}, good choice."
+          puts "Here are the latest reviews:"
+         
+          Whirly.configure spinner: "dots"
+            Whirly.start do
+            Whirly.status = "LOADING..."
+            sleep 3
+          end
+        
         Scraper.scrape_reviews
 
         list_reviews(@selected)
 
         puts " "
-        puts "Enter the number of the review you'd like to read."
+        puts "Enter the number of the review you'd like to read, or type exit."
         puts " "
 
         input = gets.strip.downcase
@@ -49,11 +53,16 @@ class  CLI
           
         elsif input.to_i > 5
           puts "I don't understand. Try again"
-          sleep(1)
+          sleep 1 
           main_menu
+          
+        elsif input == "exit"
+          goodbye
+          
         else
         puts "I don't understand. Try again"
-      end
+  
+        end
       end
     end
 
