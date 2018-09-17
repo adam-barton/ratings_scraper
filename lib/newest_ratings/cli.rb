@@ -31,6 +31,8 @@ class  CLI
         else        
           puts "#{@selected.name}, good choice."
           puts "Here are the latest reviews:"
+          puts " "
+          puts " "
          
           Whirly.configure spinner: "dots"
             Whirly.start do

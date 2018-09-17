@@ -14,12 +14,6 @@ class Review
     @product.add_review(self)
   end
   
-  # def product=(product)
-  #   @product = product
-    
-  #   binding.pry
-  # end
-  
   def self.clear
     @@all.clear
   end

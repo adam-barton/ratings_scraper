@@ -17,11 +17,6 @@ class Product
     @@all
   end
   
-  def save
-    @@all << self 
-    self
-  end
-  
   def reviews 
     @reviews
   end
@@ -44,15 +39,4 @@ class Product
     end
   end
   
-  def self.current_reviews
-    @@current_reviews
-  end
-
-  def choice
-    puts "#{@product}, excellent choice."
-    puts " "
-    puts "Here are the latest reviews:"
-  end
 end
-
-# Product.list_reviews("Monitors")
