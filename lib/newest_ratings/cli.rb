@@ -73,8 +73,8 @@ class  CLI
     
     def open_review(review)
       puts"#{@selected.reviews[review].url}"
-      Scraper.scrape_synopsis("#{@selected.reviews[review].url}")
-      sleep 3
+      # Scraper.scrape_synopsis("#{@selected.reviews[review].url}")
+      # sleep 3
       puts " "
       puts "Would you like to see make another selection? y/n"
       
