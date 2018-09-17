@@ -1,4 +1,3 @@
-require 'pry'
 class Review
 
   attr_accessor :title, :date, :url, :product, :synopsis
@@ -12,7 +11,6 @@ class Review
     @url = url
     self.product = product
     @product.add_review(self)
-    @synopsis = synopsis
   end
   
   def self.clear
@@ -34,10 +32,6 @@ class Review
       # Product.add_review(self)
       binding.pry
     end
-  end
-  
-  def list_synopsis
-    
   end
 
 end
