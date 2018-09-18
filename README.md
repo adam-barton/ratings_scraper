@@ -16,6 +16,10 @@ Clone this repo, and type the below
 Type the below and follow the on screen prompts.
 
     $ ./bin/latest_reviews 
+    
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/adam-barton/ratings. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
