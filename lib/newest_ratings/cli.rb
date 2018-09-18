@@ -72,7 +72,12 @@ class  CLI
     end
     
     def open_review(review)
-      puts"#{@selected.reviews[review].url}"
+     
+      begin
+       Launchy.open(@selected.reviews[review].url)
+      rescue
+       puts"#{@selected.reviews[review].url}"
+      end
       # Scraper.scrape_synopsis("#{@selected.reviews[review].url}")
       # sleep 3
       puts " "
