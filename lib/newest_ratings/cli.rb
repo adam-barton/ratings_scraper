@@ -2,31 +2,28 @@ class  CLI
 
     def call
       Scraper.start
-        puts " "
-        puts "Welcome to RTINGS."
-        puts " "
-        main_menu
-        goodbye
+      puts " "
+      puts "Welcome to RTINGS."
+      puts " "
+      main_menu
+      goodbye
     end
 
     def main_menu
-      # input = nil
-      # while input != "exit"
       puts "Please make a selection:"
       puts " "
       Product.list_products
       puts " "
       @products = Product.all
     
-    input = gets.strip
+      input = gets.strip
     
-        @selected = Product.all[input.to_i - 1]
+      @selected = Product.all[input.to_i - 1]
         
         if input.to_i > Product.all.count
           puts "I don't understand, try again."
           sleep 1
           main_menu
-        
         else        
           puts "#{@selected.name}, good choice."
           puts "Here are the latest reviews:"
@@ -34,7 +31,7 @@ class  CLI
           puts " "
          
           Whirly.configure spinner: "dots"
-            Whirly.start do
+          Whirly.start do
             Whirly.status = "LOADING..."
             sleep 3
           end
@@ -51,18 +48,14 @@ class  CLI
 
         if input.to_i.between?(1, 5)  
           open_review(input.to_i - 1)
-          
         elsif input.to_i > 5
           puts "I don't understand. Try again"
           sleep 1 
           main_menu
-          
         elsif input == "exit"
           goodbye
-          
         else
         puts "I don't understand. Try again"
-  
         end
       end
     end
@@ -72,7 +65,6 @@ class  CLI
     end
     
     def open_review(review)
-     
       begin
        Launchy.open(@selected.reviews[review].url)
       rescue

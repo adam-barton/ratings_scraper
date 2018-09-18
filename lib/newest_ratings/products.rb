@@ -4,7 +4,6 @@ class Product
   attr_reader :reviews
 
   @@all = []
-  @@current_reviews = []
 
   def initialize(name)
     @name = name
@@ -37,5 +36,4 @@ class Product
         break if index == 4
     end
   end
-  
 end

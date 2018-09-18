@@ -12,11 +12,7 @@ class Review
     self.product = product
     @product.add_review(self)
   end
-  
-  def self.clear
-    @@all.clear
-  end
-  
+ 
   def save
     @@all << self
   end
@@ -24,14 +20,4 @@ class Review
    def self.all
     @@all
   end
-  
-  def self.list_reviews_by_product(product)
-    @@all.find.with_index do |review, index|
-      review.product == product
-      puts "#{index+1}. #{review.date} - #{review.title}"
-      # Product.add_review(self)
-      binding.pry
-    end
-  end
-
 end
