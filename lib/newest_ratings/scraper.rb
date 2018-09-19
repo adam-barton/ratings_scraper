@@ -34,7 +34,7 @@ class Scraper
           p.name == self.scrape_products[index]
           end
         review = Review.new(@title, @date, "https://www.rtings.com#{@url}", @product)
-        review.save
+        review.save unless review.url.include?("youtu.be")
       end
     end  
   end

@@ -11,6 +11,7 @@ class Review
     @url = url
     self.product = product
     @product.add_review(self)
+    # remove_bad_urls
   end
  
   def save
@@ -20,4 +21,15 @@ class Review
    def self.all
     @@all
   end
+  
+  # def remove_bad_urls
+  #   # @@all.find_all |reviews|
+  #   # reviews.url.include?("youtu.be") || reviews.title.include?("Video:")
+  #   # reviews.pop
+  #   # end
+  #   # @@all.delete_if do |review| 
+  #   #   review.url.include?("youtu.be") || review.title.include?("Video:")
+  #   # end
+  # end
+  
 end
