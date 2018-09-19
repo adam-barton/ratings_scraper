@@ -1,9 +1,8 @@
 class Review
 
-  attr_accessor :title, :date, :url, :product, :synopsis
-  attr_reader 
+  attr_accessor :title, :date, :url, :product
 
-  @@all = []
+   @@all = []
   
   def initialize(title, date, url, product)
     @title = title 

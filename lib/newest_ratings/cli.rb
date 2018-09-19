@@ -20,7 +20,7 @@ class  CLI
     
       @selected = Product.all[input.to_i - 1]
         
-        if input.to_i > Product.all.count
+        if input.to_i > Product.all.count || input.to_i < 1
           puts "I don't understand, try again."
           sleep 1
           main_menu
@@ -46,16 +46,18 @@ class  CLI
 
         input = gets.strip.downcase
 
-        if input.to_i.between?(1, 5)  
+        if input.to_i.between?(1, 5)
           open_review(input.to_i - 1)
         elsif input.to_i > 5
           puts "I don't understand. Try again"
           sleep 1 
-          main_menu
+           main_menu
         elsif input == "exit"
           goodbye
         else
         puts "I don't understand. Try again"
+        puts " "
+        main_menu
         end
       end
     end
@@ -70,8 +72,6 @@ class  CLI
       rescue
        puts"#{@selected.reviews[review].url}"
       end
-      # Scraper.scrape_synopsis("#{@selected.reviews[review].url}")
-      # sleep 3
       puts " "
       puts "Would you like to see make another selection? y/n"
       

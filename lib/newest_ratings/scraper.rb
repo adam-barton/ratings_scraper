@@ -6,8 +6,9 @@ class Scraper
   end
   
   def self.scrape_site
-    html = (open("https://www.rtings.com/"))
-    doc = Nokogiri::HTML(html)
+    
+    @doc ||= (Nokogiri::HTML(open("https://www.rtings.com/")))
+    
   end
   
   def self.scrape_products 
@@ -37,12 +38,6 @@ class Scraper
         review.save unless review.url.include?("youtu.be")
       end
     end  
-  end
-  
-  def self.scrape_synopsis(review)
-    page = (open("#{review}"))
-    review_page = Nokogiri::HTML(page) 
-    puts review_page.css('.product_page .row .col-2_3 p').text
   end
   
 end
