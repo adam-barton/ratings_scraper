@@ -46,12 +46,12 @@ class  CLI
 
         input = gets.strip.downcase
 
-        if input.to_i.between?(1, 5)
+        if input.to_i.between?(0, @selected.reviews.count)
           open_review(input.to_i - 1)
-        elsif input.to_i > 5
-          puts "I don't understand. Try again"
-          sleep 1 
-           main_menu
+        # elsif input.to_i > @selected.reviews.count
+        #   puts "I don't understand. Try again"
+        #   sleep 1 
+        #   main_menu
         elsif input == "exit"
           goodbye
         else
