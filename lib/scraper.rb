@@ -28,7 +28,7 @@ class Scraper
      
     list.each.with_index do |item, index|
       item.css('li').each do |article|
-        @title = article.css('a').text
+        @title = article.css('a').text.strip
         @date = article.css('.pub-date').text
         @url = article.css("a").attribute('href').value
           @product = Product.all.find do |p|
